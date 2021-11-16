@@ -1,0 +1,14 @@
+<% layout('layout/boilerplate') %> 
+<div class="row">
+  <div class="col-6 offset-3">   
+  <div class="card border-danger mb-7" style="max-width: 100rem;">
+    <div class="card-header">      
+    <div class="alert alert-danger text-danger">
+    <h5 class="card-title"><%= err.message %></h5>
+      <%   if(process.env.NODE_ENV != "production"){%>
+        <p class="card-text"><%= err.stack %> </p>
+        <% } %> 
+    </div>
+  </div>
+  </div>
+</div>

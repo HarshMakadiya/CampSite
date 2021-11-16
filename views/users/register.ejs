@@ -1,0 +1,75 @@
+<% layout('layout/boilerplate') %>
+<div class="container d-flex justify-content-center align-items-center mt-1 mb-4">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+            <div class="card shadow">
+                <img src="https://images.unsplash.com/photo-1471474382320-7d31e2cc170e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"alt="" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">Register</h5>
+                    <form action="/register" class="validated-form" novalidate method="post">
+                        <div class="mb-3">
+                            <label class="form-label"  for="username">Username</label>
+                            <input class="form-control" type="text"  id="username" name="username" required>
+                            <div class="valid-feedback">
+                                looks good!
+                            </div>
+                        </div>
+                    
+                        <div class="mb-3">
+                            <label class="form-label"  for="email">Email</label>
+                            <input class="form-control" type="email"  id="email" name="email" required>
+                            <div class="valid-feedback">
+                                looks good!
+                            </div>
+                        </div>
+                    
+                        <div class="mb-3">
+                            <label class="form-label"  for="password">Password</label>
+                            <input class="form-control" type="password"  id="password" name="password" value="" required onkeyup="myfun()">
+                            <input type="checkbox" onclick="myfunction()">Show Password
+                            <div class="valid-feedback">
+                                looks good!
+                            </div>
+                            <br>
+                            Password must contain : - <br>
+                                1) One special character,<br>
+                                2) One LowerCase,<br>
+                                3) One UpperCase,<br>
+                                4) One Digit,<br>
+                                5) Size of password should be in between 8 to 16,
+                        </div>
+                        <div class="d-grid gap-2">
+                                <button class="btn btn-success btn-block">Register</button>
+                        </div>
+                    </form> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function myfunction(){
+        var pass = document.getElementById("password");
+        if(pass.type === "password"){ 
+            pass.type = "text";
+        }else
+        {
+            pass.type = "password";
+        }
+    }
+</script> 
+
+<script>
+    function myfun(){
+        var a = document.getElementById("password");
+        var exp = new RegExp("^(?=.*[!@#$%^&*])(?=.*[0-9])[a-zA-Z0-9!@#$%^&*]{8,16}$");
+        if(exp.test(a.value)==false){
+            a.classList.remove("is-valid");
+            a.classList.add("is-invalid");
+        }else{
+            a.classList.remove("is-invalid");
+            a.classList.add("is-valid");
+        }
+    }
+</script>

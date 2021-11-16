@@ -1,0 +1,29 @@
+<% layout('layout/boilerplate') %> 
+        <h1>All Campgrounds</h1>
+        <% campgrounds.forEach(element => { %>
+            <div class="card mb-3" >
+                <div class="row">
+                    <div class="col-md-4">
+                        <% if(element.images.length) {%> 
+                        <img class="img-fluid img-thumbnail height:800px" alt="" src="<%=element.images[0].url%>">
+                        <% } else{%>
+                            <img class="img-fluid img-thumbnail height:800px" alt="" src="https://res.cloudinary.com/harshmakadiya/image/upload/v1636273949/Yelpcamp/nae2uuwfuyzgo33mir53.jpg">
+                        <% } %>  
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <%=element.title%>
+                            </h5>
+                            <p class="card-text">
+                                <%=element.description%>
+                            </p>
+                            <p class="card-text">
+                                <small class="text-muted"><%= element.location %> </small>
+                            </p>
+                            <a class="btn btn-primary" href="campgrounds/<%=element._id%>">View <%= element.title %> </a>
+                        </div>
+                    </div>
+                </div>
+            </div>        
+        <% }); %> 
