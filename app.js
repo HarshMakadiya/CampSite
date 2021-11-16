@@ -110,6 +110,7 @@ app.use((err,req,res,next)=>{
 })
 
 
-app.listen(3000,()=>{
-    console.log("CONNECTED!");
+const port = process.env.PORT || 3000
+app.listen(port,()=>{
+    console.log(`SERVING THE PORT ${port}`);
 })
