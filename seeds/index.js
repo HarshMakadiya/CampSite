@@ -3,7 +3,9 @@ const cities = require("./cities")
 const {places, descriptors} = require("./seedhelpers")
 
 const Campground = require('../models/campground')
-mongoose.connect('mongodb://localhost:27017/yelpcamp')
+// mongoose.connect('mongodb://localhost:27017/yelpcamp')
+const Dburl = process.env.Db_url ||'mongodb://localhost:27017/yelpcamp';
+mongoose.connect(Dburl)
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, 'connection error'))
 db.once("open",()=>{
@@ -41,7 +43,10 @@ const seedDb = async ()=>{
             ],
             geometry:{
                 type:"Point",
-                coordinates:[-113.1331, 47.0202]
+                coordinates:[
+                    cities[random1000].latitude, 
+                    cities[random1000].longitude,
+                ]
             },
             createdDate: currentDate
         })
