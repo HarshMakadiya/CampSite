@@ -1,6 +1,6 @@
 <% layout('layout/boilerplate') %> 
 <div class="row">
-    <h1 class="text-center">New Campground</h1>
+    <h1 class="text-center">New CampSite</h1>
     <div class="col-6 offset-3">
         <form action="/campgrounds" method="post" novalidate class="validated-form" enctype="multipart/form-data">
             <div class="mb-3">
@@ -20,7 +20,7 @@
             </div>
             <div class="mb-3">
                 <div class="input-group">
-                    <label class="form-label" for="price">Campground price </label>
+                    <label class="form-label" for="price">CampSite price </label>
                     <div class="input-group">
                         <span class="input-group-text" id="price-label">₹</span>
                         <input type="text" class="form-control" id="price" placeholder="0.00" aria-label="price" aria-describedby="price-label" name="campground[price]"required>
@@ -32,8 +32,7 @@
             </div>
             <div class="mb-3">
                 <label class="form-label" for="description">Description</label>
-                <textarea class="form-control" type="text"  id="description" name="campground[description]" required>
-                </textarea>
+                <textarea class="form-control" type="text"  id="description" name="campground[description]" required></textarea>
                 <div class="valid-feedback">
                     looks good!
                 </div>
@@ -51,10 +50,7 @@
                     </div>
                 </div>
             </div>
-            <div class="mb-3"><button class="btn btn-success">Add Campground</button></div>
+            <div class="mb-3"><button class="btn btn-success">Add CampSite</button></div>
         </form>
-        <footer>
-            <a href="/campgrounds">All campgrounds</a>
-        </footer>
     </div>
 </div>
