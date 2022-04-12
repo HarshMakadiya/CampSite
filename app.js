@@ -25,7 +25,7 @@ const helmet = require('helmet')
 const MongoStore = require('connect-mongo')(session);
 
 //'mongodb://localhost:27017/yelpcamp'
-//process.env.Db_url || 
+
 const Dburl = process.env.Db_url ||'mongodb://localhost:27017/yelpcamp';
 mongoose.connect(Dburl)
 const db = mongoose.connection;
